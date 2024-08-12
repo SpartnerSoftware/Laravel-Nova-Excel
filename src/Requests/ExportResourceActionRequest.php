@@ -18,7 +18,9 @@ class ExportResourceActionRequest extends ActionRequest implements ExportActionR
     public function toExportQuery()
     {
         return $this->toSelectedResourceQuery()->when(!$this->forAllMatchingResources(), function ($query) {
-            $query->whereKey(explode(',', $this->resources));
+            $query->whereKey(
+                is_array($this->resources) ? $this->resources : explode(',', $this->resources)
+            );
         });
     }
 
