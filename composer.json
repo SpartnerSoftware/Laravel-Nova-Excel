@@ -10,6 +10,12 @@
     "laravel-nova",
     "actions"
   ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://nova.laravel.com"
+    }
+  ],
   "authors": [
     {
       "name": "Patrick Brouwers",
