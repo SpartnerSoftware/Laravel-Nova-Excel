@@ -46,9 +46,9 @@ class DownloadExcel extends ExportToExcel
 
         return \is_callable($this->onSuccess)
             ? ($this->onSuccess)($request, $response)
-            : Action::download(
-                $this->getDownloadUrl($response->getFile()->getPathname()),
-                $this->getFilename()
+            : Action::downloadURL(
+                $this->getFilename(),
+                $this->getDownloadUrl($response->getFile()->getPathname())
             );
     }
 
@@ -70,9 +70,9 @@ class DownloadExcel extends ExportToExcel
 
         return \is_callable($this->onSuccess)
             ? ($this->onSuccess)($request, $temporaryFilePath)
-            : Action::download(
-                $this->getDownloadUrl($temporaryFilePath),
-                $this->getFilename()
+            : Action::downloadURL(
+                $this->getFilename(),
+                $this->getDownloadUrl($temporaryFilePath)
             );
     }
 
